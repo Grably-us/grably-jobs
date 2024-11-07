@@ -4,68 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Primary Meta Tags -->
-    <title>Founding Engineer Position at Grably | Web3 + AI Data Platform</title>
-    <meta name="title" content="Founding Engineer Position at Grably | Web3 + AI Data Platform">
-    <meta name="description" content="Join Grably as a Founding Engineer. Build the future of AI data access with TypeScript, React, and TWA. Backed by TON Accelerator and TON Ventures.">
+    <title>Job Openings at Grably | Web3 + AI Data Platform</title>
+    <meta name="description" content="Join Grably as a Founding Engineer or TON FunC Developer. Build the future of AI data access with Web3 technology. Backed by TON Accelerator and TON Ventures.">
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://grably-us.github.io/grably-jobs/">
-    <meta property="og:title" content="Founding Engineer Position at Grably | Web3 + AI Data Platform">
-    <meta property="og:description" content="Join Grably as a Founding Engineer. Build the future of AI data access with TypeScript, React, and TWA. Backed by TON Accelerator and TON Ventures.">
-    <meta property="og:image" content="https://static.tildacdn.one/tild3863-3133-4538-a263-356134623965/Group_29.svg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://grably-us.github.io/grably-jobs/">
-    <meta property="twitter:title" content="Founding Engineer Position at Grably | Web3 + AI Data Platform">
-    <meta property="twitter:description" content="Join Grably as a Founding Engineer. Build the future of AI data access with TypeScript, React, and TWA. Backed by TON Accelerator and TON Ventures.">
-    <meta property="twitter:image" content="https://static.tildacdn.one/tild3863-3133-4538-a263-356134623965/Group_29.svg">
-
-    <!-- Additional Meta Tags -->
-    <meta name="keywords" content="Grably, Web3 Jobs, Blockchain Jobs, AI Jobs, TypeScript, React, TWA, Telegram Web Apps, TON, Developer Jobs, Engineering Jobs">
-    <meta name="author" content="Grably">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="https://static.tildacdn.one/tild3863-3133-4538-a263-356134623965/Group_29.svg">
-    
-    <!-- Theme Color for Mobile Browsers -->
-    <meta name="theme-color" content="#27A7E7">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://grably-us.github.io/grably-jobs/">
-
-    <!-- Schema.org markup for Google -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "JobPosting",
-      "title": "Founding Engineer",
-      "description": "Join Grably as a Founding Engineer to build the future of AI data access with TypeScript, React, and TWA.",
-      "datePosted": "2024-03-28",
-      "validThrough": "2024-06-28",
-      "employmentType": "FULL_TIME",
-      "hiringOrganization": {
-        "@type": "Organization",
-        "name": "Grably",
-        "sameAs": "https://grably.us",
-        "logo": "https://static.tildacdn.one/tild3863-3133-4538-a263-356134623965/Group_29.svg"
-      },
-      "jobLocation": {
-        "@type": "Place",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Remote"
-        }
-      },
-      "skills": "TypeScript, React, TWA, Node.js, Telegram Bot Development, PostgreSQL, Docker, CI/CD",
-      "industry": "Web3, Blockchain, Artificial Intelligence"
-    }
-    </script>
     <style>
         :root {
             --primary: #27A7E7;
@@ -117,6 +58,37 @@
             left: 1rem;
             height: 40px;
             width: auto;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--primary);
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .job-content {
+            display: none;
+        }
+
+        .job-content.active {
+            display: block;
         }
 
         .section {
@@ -192,35 +164,6 @@
             flex-grow: 1;
         }
 
-        .contact-details h3 {
-            margin: 0;
-            color: var(--primary);
-        }
-
-        .contact-details p {
-            margin: 0.25rem 0 0;
-            color: var(--text);
-        }
-
-        .contact-links {
-            margin-top: 0.5rem;
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .contact-link:hover {
-            text-decoration: underline;
-        }
-
         .social-links {
             margin-top: 1rem;
             display: flex;
@@ -243,13 +186,40 @@
         .social-link:hover {
             background: rgba(255, 255, 255, 0.1);
         }
+
+        .contact-links {
+            margin-top: 0.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            background: var(--primary);
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            background: var(--secondary);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
     </style>
 </head>
 <body>
     <div class="header">
         <img src="https://static.tildacdn.one/tild3863-3133-4538-a263-356134623965/Group_29.svg" alt="Grably Logo" class="logo">
-        <h1>🚀 Founding Engineer</h1>
-        <p>Join us in building the future of AI data! ✨</p>
+        <h1>🚀 Join Grably</h1>
+        <p>Help us build the future of AI data! ✨</p>
         <div class="social-links">
             <a href="https://grably.us" class="social-link">🌐 Website</a>
             <a href="https://github.com/grably-us" class="social-link">💻 GitHub</a>
@@ -257,61 +227,107 @@
         </div>
     </div>
 
-
     <div class="container">
-        <div class="section">
-            <h2>🛠️ Tech Stack</h2>
-            <div>
-                <span class="tag">⚛️ React</span>
-                <span class="tag">📱 TypeScript</span>
-                <span class="tag">✈️ TWA</span>
-                <span class="tag">🔋 Node.js</span>
-                <span class="tag">🤖 Telegram Bot</span>
-                <span class="tag">🗄️ PostgreSQL</span>
-                <span class="tag">🐳 Docker</span>
-                <span class="tag">🔄 CI/CD</span>
-                <span class="tag">☁️ DigitalOcean</span>
-                <span class="tag">💸 Payment Systems</span>
-                <span class="tag">🎨 Tailwind CSS</span>
-                <span class="tag">💅 Styled Components</span>
-                <span class="tag">📦 Webpack</span>
-                <span class="tag">🔍 GraphQL</span>
+        <div class="tabs">
+            <button class="tab active" onclick="showJob('founding-engineer')">🚀 Founding Engineer</button>
+            <button class="tab" onclick="showJob('func-developer')">⛓️ TON FunC Developer</button>
+        </div>
+
+        <!-- Founding Engineer Position -->
+        <div id="founding-engineer" class="job-content active">
+            <div class="section">
+                <h2>🛠️ Tech Stack</h2>
+                <div>
+                    <span class="tag">⚛️ React</span>
+                    <span class="tag">📱 TypeScript</span>
+                    <span class="tag">✈️ TWA</span>
+                    <span class="tag">🔋 Node.js</span>
+                    <span class="tag">🤖 Telegram Bot</span>
+                    <span class="tag">🗄️ PostgreSQL</span>
+                    <span class="tag">🐳 Docker</span>
+                    <span class="tag">🔄 CI/CD</span>
+                    <span class="tag">☁️ DigitalOcean</span>
+                    <span class="tag">💸 Payment Systems</span>
+                    <span class="tag">🎨 Tailwind CSS</span>
+                    <span class="tag">💅 Styled Components</span>
+                    <span class="tag">📦 Webpack</span>
+                    <span class="tag">🔍 GraphQL</span>
+                </div>
+                
+                <h3>✨ Nice to Have</h3>
+                <div>
+                    <span class="tag">🧠 TensorFlow.js</span>
+                    <span class="tag">⛓️ TON API</span>
+                    <span class="tag">🔷 FunC</span>
+                    <span class="tag">📝 Tact</span>
+                    <span class="tag">🎭 Jest</span>
+                    <span class="tag">🔒 Web3.js</span>
+                </div>
             </div>
-            
-            <h3>✨ Nice to Have</h3>
-            <div>
-                <span class="tag">🧠 TensorFlow.js</span>
-                <span class="tag">⛓️ TON API</span>
-                <span class="tag">🔷 FunC</span>
-                <span class="tag">📝 Tact</span>
-                <span class="tag">🎭 Jest</span>
-                <span class="tag">🔒 Web3.js</span>
-                <span class="tag">🌐 WebSocket</span>
-                <span class="tag">🎨 Three.js</span>
+
+            <div class="section">
+                <h2>👩‍💻 About You</h2>
+                <ul class="requirements-list">
+                    <li>Pro at HTML, CSS, and TypeScript</li>
+                    <li>Builder of smooth, fast web solutions</li>
+                    <li>Master of the web dev universe</li>
+                    <li>Architect of robust web apps</li>
+                    <li>Testing and debugging wizard</li>
+                    <li>Eye for beautiful UI/UX</li>
+                    <li>Detail-oriented problem solver</li>
+                    <li>Team player who gets things done</li>
+                    <li>Tech explorer and innovator</li>
+                    <li>Ready for long-term founding journey</li>
+                    <li>Interest in AI and machine learning</li>
+                </ul>
             </div>
         </div>
 
-        <div class="section">
-            <h2>👩‍💻 About You</h2>
-            <ul class="requirements-list">
-                <li>Pro at HTML, CSS, and TypeScript</li>
-                <li>Builder of smooth, fast web solutions</li>
-                <li>Master of the web dev universe</li>
-                <li>Architect of robust web apps</li>
-                <li>Testing and debugging wizard</li>
-                <li>Eye for beautiful UI/UX</li>
-                <li>Detail-oriented problem solver</li>
-                <li>Team player who gets things done</li>
-                <li>Tech explorer and innovator</li>
-                <li>Mentor to fellow developers</li>
-                <li>Natural project leader</li>
-                <li>Experience with modern CSS frameworks and tools</li>
-                <li>Passionate about blockchain and Web3</li>
-                <li>Ready for long-term founding journey</li>
-                <li>Interest in AI and machine learning</li>
-            </ul>
+        <!-- TON FunC Developer Position -->
+        <div id="func-developer" class="job-content">
+            <div class="section">
+                <h2>🛠️ Tech Stack</h2>
+                <div>
+                    <span class="tag">⛓️ FunC</span>
+                    <span class="tag">📝 Tact</span>
+                    <span class="tag">🔷 TON</span>
+                    <span class="tag">🔒 Smart Contracts</span>
+                    <span class="tag">🌐 TON API</span>
+                    <span class="tag">🔍 TON Connect</span>
+                    <span class="tag">📱 TypeScript</span>
+                    <span class="tag">🧪 Testing Tools</span>
+                </div>
+                
+                <h3>✨ Nice to Have</h3>
+                <div>
+                    <span class="tag">📱 TWA</span>
+                    <span class="tag">🔒 Solidity</span>
+                    <span class="tag">⚡ TVM</span>
+                    <span class="tag">🔐 Cryptography</span>
+                    <span class="tag">🎭 Contract Testing</span>
+                    <span class="tag">📊 DeFi Protocols</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>👩‍💻 About You</h2>
+                <ul class="requirements-list">
+                    <li>Expert in FunC and TON blockchain development</li>
+                    <li>Strong understanding of blockchain architecture</li>
+                    <li>Experience with smart contract development</li>
+                    <li>Knowledge of cryptographic principles</li>
+                    <li>Proven track record of secure contract deployment</li>
+                    <li>Familiarity with TON ecosystem and tools</li>
+                    <li>Understanding of gas optimization</li>
+                    <li>Experience with contract testing and auditing</li>
+                    <li>Problem-solving mindset</li>
+                    <li>Passionate about Web3 and decentralization</li>
+                    <li>Ready to build foundational blockchain infrastructure</li>
+                </ul>
+            </div>
         </div>
 
+        <!-- Common Sections -->
         <div class="section">
             <h2>🌟 About Grably</h2>
             <div class="about-company">
@@ -328,28 +344,46 @@
                     <li>🤝 Community-driven development</li>
                 </ul>
 
-                <p>This is a founding role - perfect for someone who wants to build something amazing from the ground up and stick around for the long haul! 🚀</p>
+                <p>These are founding roles - perfect for someone who wants to build something amazing from the ground up! 🚀</p>
             </div>
         </div>
 
+        <!-- Contact Section -->
         <div class="section">
             <h2>📫 Get in Touch</h2>
-            <div class="contact-info">
-                <img src="https://avatars.githubusercontent.com/u/118047001?v=4" alt="Anton Vice" />
-                <div class="contact-details">
-                    <h3>Anton Vice</h3>
-                    <p>CTO @ Grably 🚀</p>
-                    <div class="contact-links">
-                        <a href="https://t.me/nucradkillsrats" class="contact-link">
-                            <span>✈️ @nucradkillsrats</span>
-                        </a>
-                        <a href="mailto:anton96vice@gmail.com" class="contact-link">
-                            <span>📧 anton96vice@gmail.com</span>
-                        </a>
-                    </div>
+        <div class="contact-info">
+            <img src="https://avatars.githubusercontent.com/u/118047001?v=4" alt="Anton Vice" />
+            <div class="contact-details">
+                <h3>Anton Vice</h3>
+                <p>CTO @ Grably 🚀</p>
+                <div class="contact-links">
+                    <a href="https://t.me/nucradkillsrats" class="contact-link">
+                        ✈️ @nucradkillsrats
+                    </a>
+                    <a href="mailto:anton96vice@gmail.com" class="contact-link">
+                        📧 anton96vice@gmail.com
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function showJob(jobId) {
+            // Hide all job contents
+            document.querySelectorAll('.job-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected job content
+            document.getElementById(jobId).classList.add('active');
+            
+            // Update tab styling
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
