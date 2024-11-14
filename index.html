@@ -290,7 +290,7 @@
         </div> 
 
         <!-- Founding Engineer Position -->
-        <div id="founding-engineer" class="job-content active">
+        <div id="founding-engineer" class="job-content">
             <div class="section">
                 <h2>🛠️ Tech Stack</h2>
                 <div>
@@ -340,7 +340,7 @@
         </div>
 
         <!-- TON FunC Developer Position -->
-        <div id="func-developer" class="job-content">
+        <div id="func-developer" class="job-content active">
             <div class="section">
                 <h2>🛠️ Tech Stack</h2>
                 <div>
@@ -428,6 +428,22 @@
         document.addEventListener('DOMContentLoaded', function() {
             const tabs = document.querySelectorAll('.tab');
             
+            // Initial state check - ensure only one tab and content is active
+            const initializeState = () => {
+                const activeTab = document.querySelector('.tab.active');
+                if (activeTab) {
+                    const jobId = activeTab.getAttribute('data-job');
+                    document.querySelectorAll('.job-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(jobId).classList.add('active');
+                }
+            };
+    
+            // Run initial state check
+            initializeState();
+            
+            // Tab click handler
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
                     // Remove active class from all tabs and contents
@@ -439,7 +455,10 @@
                     // Add active class to clicked tab and corresponding content
                     this.classList.add('active');
                     const jobId = this.getAttribute('data-job');
-                    document.getElementById(jobId).classList.add('active');
+                    const content = document.getElementById(jobId);
+                    if (content) {
+                        content.classList.add('active');
+                    }
                 });
             });
         });
