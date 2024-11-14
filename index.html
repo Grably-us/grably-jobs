@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Job Openings at Grably | Web3 + AI Data Platform</title>
     <meta name="description" content="Join Grably as a Founding Engineer or TON FunC Developer. Build the future of AI data access with Web3 technology. Backed by TON Accelerator and TON Ventures.">
     
     <style>
         :root {
-            --primary: #27A7E7;
-            --secondary: #1e93cf;
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
             --text: #1f2937;
             --background: #f8fafc;
-            --accent: #e3f2fd;
+            --accent: #eff6ff;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
         body {
@@ -21,22 +26,19 @@
             line-height: 1.6;
             color: var(--text);
             background: var(--background);
-            margin: 0;
-            padding: 0;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 2rem 1rem;
         }
 
         .header {
             background: var(--primary);
             color: white;
-            padding: 3rem 2rem;
+            padding: 3rem 1rem;
             text-align: center;
-            margin-bottom: 2rem;
             position: relative;
         }
 
@@ -60,11 +62,36 @@
             width: auto;
         }
 
+        .social-links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            border: 1px solid white;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
         .tabs {
             display: flex;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin: 2rem 0;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .tab {
@@ -76,6 +103,12 @@
             color: var(--primary);
             font-weight: 600;
             transition: all 0.2s;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .tab:hover {
+            background: var(--accent);
         }
 
         .tab.active {
@@ -85,6 +118,12 @@
 
         .job-content {
             display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .job-content.active {
@@ -102,11 +141,17 @@
         .section h2 {
             color: var(--primary);
             margin-top: 0;
-            border-bottom: 2px solid var(--accent);
+            margin-bottom: 1rem;
             padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
             display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+
+        .section h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 1rem;
         }
 
         .requirements-list {
@@ -123,9 +168,9 @@
         .requirements-list li::before {
             content: "•";
             color: var(--primary);
-            font-weight: bold;
             position: absolute;
             left: 0;
+            font-weight: bold;
         }
 
         .tag {
@@ -138,24 +183,19 @@
             margin: 0.25rem;
             border: 1px solid var(--primary);
         }
-        .tab.disabled {
-            background: #ddd;
-            color: #888;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
+
         .about-company {
             background: var(--accent);
             padding: 2rem;
             border-radius: 8px;
-            margin-top: 2rem;
         }
 
         .contact-info {
             display: flex;
-            align-items: center;
-            gap: 1rem;
+            align-items: flex-start;
+            gap: 1.5rem;
             margin-top: 1rem;
+            flex-wrap: wrap;
         }
 
         .contact-info img {
@@ -166,37 +206,25 @@
         }
 
         .contact-details {
-            flex-grow: 1;
+            flex: 1;
+            min-width: 250px;
         }
 
-        .social-links {
-            margin-top: 1rem;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
+        .contact-details h3 {
+            margin: 0;
+            color: var(--text);
         }
 
-        .social-link {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 999px;
-            border: 1px solid white;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.1);
+        .contact-details p {
+            margin: 0.5rem 0;
+            color: #4b5563;
         }
 
         .contact-links {
-            margin-top: 0.5rem;
             display: flex;
             gap: 1rem;
-            align-items: center;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .contact-link {
@@ -213,11 +241,34 @@
         }
 
         .contact-link:hover {
-            background: var(--secondary);
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: var(--primary-dark);
         }
 
+        @media (max-width: 640px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .tab {
+                padding: 0.75rem 1.5rem;
+            }
+            
+            .contact-info {
+                text-align: center;
+            }
+            
+            .contact-info img {
+                margin: 0 auto;
+            }
+            
+            .contact-links {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -226,17 +277,17 @@
         <h1>🚀 Join Grably</h1>
         <p>Help us build the future of AI data! ✨</p>
         <div class="social-links">
-            <a href="https://grably.us" class="social-link">🌐 Website</a>
-            <a href="https://github.com/grably-us" class="social-link">💻 GitHub</a>
-            <a href="https://t.me/grablyinc" class="social-link">✈️ Telegram</a>
+            <a href="https://grably.us" class="social-link" target="_blank" rel="noopener noreferrer">🌐 Website</a>
+            <a href="https://github.com/grably-us" class="social-link" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
+            <a href="https://t.me/grablyinc" class="social-link" target="_blank" rel="noopener noreferrer">✈️ Telegram</a>
         </div>
     </div>
 
     <div class="container">
         <div class="tabs">
-            <button class="tab">🚀 Founding Engineer</button>
-            <button class="tab active" onclick="showJob('founding-engineer')">⛓️ TON FunC Developer</button>
-        </div>    
+            <button class="tab" data-job="founding-engineer">🚀 Founding Engineer</button>
+            <button class="tab active" data-job="func-developer">⛓️ TON FunC Developer</button>
+        </div> 
 
         <!-- Founding Engineer Position -->
         <div id="founding-engineer" class="job-content active">
@@ -289,7 +340,7 @@
         </div>
 
         <!-- TON FunC Developer Position -->
-        <div id="func-developer" class="job-content active">
+        <div id="func-developer" class="job-content">
             <div class="section">
                 <h2>🛠️ Tech Stack</h2>
                 <div>
@@ -374,38 +425,24 @@
     </div>
 
     <script>
-        // Show FunC Developer position by default on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Hide all job contents first
-            document.querySelectorAll('.job-content').forEach(content => {
-                content.classList.remove('active');
-            });
+            const tabs = document.querySelectorAll('.tab');
             
-            // Show FunC Developer position
-            document.getElementById('func-developer').classList.add('active');
-            
-            // Update tab styling
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.job-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    const jobId = this.getAttribute('data-job');
+                    document.getElementById(jobId).classList.add('active');
+                });
             });
-            document.querySelector('.tab:not(.disabled)').classList.add('active');
         });
-
-        function showJob(jobId) {
-            // Hide all job contents
-            document.querySelectorAll('.job-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Show selected job content
-            document.getElementById(jobId).classList.add('active');
-            
-            // Update tab styling
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            event.target.classList.add('active');
-        }
     </script>
 </body>
 </html>
