@@ -28,19 +28,16 @@
             background: var(--background);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
+
 
         .header {
-            background: var(--primary);
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
-            position: relative;
-        }
+    background: var(--primary);
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    position: relative;
+}
+
 
         .header h1 {
             margin: 0;
@@ -52,11 +49,6 @@
             margin: 1rem 0 0;
             font-size: 1.2rem;
             opacity: 0.9;
-        }
-
-        .header-logo {
-            height: 40px;
-            width: auto;
         }
 
         .inline-logo {
@@ -106,6 +98,53 @@
             flex-wrap: wrap;
         }
 
+/* Update particle positioning and z-index */
+.particle {
+    position: fixed; /* Change back to fixed to allow falling through content */
+    top: -10px;
+    z-index: 0; /* Place behind content */
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    animation: fall linear infinite;
+    pointer-events: none; /* Ensure particles don't interfere with clicks */
+}
+
+/* Add z-index to container to keep content above particles */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0.7;
+    }
+    /* Fade out gradually as they fall */
+    40% {
+        opacity: 0.7;
+    }
+    60% {
+        opacity: 0.3;
+    }
+    80% {
+        opacity: 0.15;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* Ensure content stays above particles */
+.header-content {
+    position: relative;
+    z-index: 2;
+}
         .tab {
             padding: 1rem 2rem;
             background: white;
@@ -472,6 +511,50 @@
                     }
                 });
             });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.header');
+    const particles = ['❄', '💲', '✨'];
+    const numberOfParticles = 50;
+    
+    function createParticle() {
+        const particle = document.createElement('span');
+        particle.className = 'particle';
+        
+        // Random particle type
+        particle.textContent = particles[Math.floor(Math.random() * particles.length)];
+        
+        // Random starting position
+        const startPos = Math.random() * 100;
+        particle.style.left = `${startPos}%`;
+        
+        // Random size
+        const size = Math.random() * 14 + 10;
+        particle.style.fontSize = `${size}px`;
+        
+        // Random animation duration
+        const duration = Math.random() * 8 + 5;
+        particle.style.animationDuration = `${duration}s`;
+        
+        // Remove particle after animation
+        particle.addEventListener('animationend', () => {
+            particle.remove();
+        });
+        
+        header.appendChild(particle);
+    }
+
+    // Initial particles
+    for (let i = 0; i < numberOfParticles; i++) {
+        setTimeout(createParticle, Math.random() * 3000);
+    }
+
+    // Continue creating particles
+    setInterval(() => {
+        if (document.querySelectorAll('.particle').length < numberOfParticles) {
+                createParticle();
+            }
+        }, 200);
         });
     </script>
 </body>
