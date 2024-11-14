@@ -54,6 +54,24 @@
             opacity: 0.9;
         }
 
+        .logo-container {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .header-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .inline-logo {
+            height: 2.5rem;
+            width: auto;
+            vertical-align: middle;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
         .logo {
             position: absolute;
             top: 1rem;
@@ -273,8 +291,10 @@
 </head>
 <body>
     <div class="header">
-        <img src="https://static.tildacdn.one/tild3863-3133-4538-a263-356134623965/Group_29.svg" alt="Grably Logo" class="logo">
-        <h1>🚀 Join Grably</h1>
+        <div class="logo-container">
+            <img src="grbl.svg" alt="Grably Logo" class="header-logo">
+        </div>
+        <h1>🚀 Join <img src="grbl.svg" alt="Grably Logo" class="inline-logo"></h1>
         <p>Help us build the future of AI data! ✨</p>
         <div class="social-links">
             <a href="https://grably.us" class="social-link" target="_blank" rel="noopener noreferrer">🌐 Website</a>
