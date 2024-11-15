@@ -319,6 +319,33 @@
             .contact-links {
                 justify-content: center;
             }
+
+        /* Add styles for inactive tab */
+        .tab.inactive {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background: #e5e7eb;
+            border-color: #9ca3af;
+            color: #4b5563;
+            position: relative;
+        }
+
+        .tab.inactive::after {
+            content: "Position Filled";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ef4444;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+        }
+
+        .tab.inactive:hover {
+            background: #e5e7eb;
+        }
         }
     </style>
 </head>
@@ -335,7 +362,7 @@
 
     <div class="container">
         <div class="tabs">
-            <button class="tab" data-job="founding-engineer">🚀 Founding Engineer</button>
+            <button class="tab inactive" data-job="founding-engineer">🚀 Founding Engineer (position closed)</button>
             <button class="tab active" data-job="func-developer">⛓️ TON FunC Developer</button>
         </div> 
 
@@ -476,38 +503,34 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.tab');
+            const tabs = document.querySelectorAll('.tab:not(.inactive)');
             
-            // Initial state check - ensure only one tab and content is active
+            // Initial state check - ensure FunC developer is active
             const initializeState = () => {
-                const activeTab = document.querySelector('.tab.active');
-                if (activeTab) {
-                    const jobId = activeTab.getAttribute('data-job');
-                    document.querySelectorAll('.job-content').forEach(content => {
-                        content.classList.remove('active');
-                    });
-                    document.getElementById(jobId).classList.add('active');
-                }
+                document.querySelectorAll('.job-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById('func-developer').classList.add('active');
             };
     
             // Run initial state check
             initializeState();
             
-            // Tab click handler
+            // Tab click handler - only for non-inactive tabs
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
-                    // Remove active class from all tabs and contents
-                    tabs.forEach(t => t.classList.remove('active'));
-                    document.querySelectorAll('.job-content').forEach(content => {
-                        content.classList.remove('active');
-                    });
-                    
-                    // Add active class to clicked tab and corresponding content
-                    this.classList.add('active');
-                    const jobId = this.getAttribute('data-job');
-                    const content = document.getElementById(jobId);
-                    if (content) {
-                        content.classList.add('active');
+                    if (!this.classList.contains('inactive')) {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        document.querySelectorAll('.job-content').forEach(content => {
+                            content.classList.remove('active');
+                        });
+                        
+                        this.classList.add('active');
+                        const jobId = this.getAttribute('data-job');
+                        const content = document.getElementById(jobId);
+                        if (content) {
+                            content.classList.add('active');
+                        }
                     }
                 });
             });
