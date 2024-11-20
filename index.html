@@ -362,9 +362,21 @@
 
     <div class="container">
         <div class="tabs">
-            <button class="tab inactive" data-job="founding-engineer">🚀 Founding Engineer (position closed)</button>
-            <button class="tab active" data-job="func-developer">⛓️ TON FunC Developer</button>
+            <button class="tab inactive" data-job="founding-engineer">🚀 Founding Engineer (Position Filled)</button>
+            <button class="tab inactive" data-job="func-developer">⛓️ TON FunC Developer (Position Filled)</button>
         </div> 
+
+        <!-- Add a notice section -->
+        <div class="section" style="text-align: center; background: var(--accent);">
+            <h2 style="border: none; justify-content: center;">🎉 Thank You for Your Interest!</h2>
+            <p style="font-size: 1.1rem; margin: 1rem 0;">
+                We've successfully filled all current positions. Follow us on 
+                <a href="https://t.me/grablyinc" style="color: var(--primary); text-decoration: none; font-weight: 600;">
+                    Telegram
+                </a> 
+                for future opportunities!
+            </p>
+        </div>
 
         <!-- Founding Engineer Position -->
         <div id="founding-engineer" class="job-content">
@@ -502,37 +514,16 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.tab:not(.inactive)');
-            
-            // Initial state check - ensure FunC developer is active
-            const initializeState = () => {
-                document.querySelectorAll('.job-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                document.getElementById('func-developer').classList.add('active');
-            };
-    
-            // Run initial state check
-            initializeState();
-            
-            // Tab click handler - only for non-inactive tabs
+                document.addEventListener('DOMContentLoaded', function() {
+            // Disable tab clicking completely
+            const tabs = document.querySelectorAll('.tab');
             tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    if (!this.classList.contains('inactive')) {
-                        tabs.forEach(t => t.classList.remove('active'));
-                        document.querySelectorAll('.job-content').forEach(content => {
-                            content.classList.remove('active');
-                        });
-                        
-                        this.classList.add('active');
-                        const jobId = this.getAttribute('data-job');
-                        const content = document.getElementById(jobId);
-                        if (content) {
-                            content.classList.add('active');
-                        }
-                    }
-                });
+                tab.style.pointerEvents = 'none';
+            });
+            
+            // Hide all job content sections
+            document.querySelectorAll('.job-content').forEach(content => {
+                content.style.display = 'none';
             });
         });
         document.addEventListener('DOMContentLoaded', function() {
